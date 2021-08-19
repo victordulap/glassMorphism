@@ -49,6 +49,7 @@ main {
   min-height: 80vh;
   margin: 5rem 0;
   width: 60%;
+  max-width: 1200px;
   background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.3)));
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
   -webkit-backdrop-filter: blur(1rem);
@@ -59,15 +60,6 @@ main {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-}
-
-@media screen and (max-width: 1700px) {
-  .glass {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
 }
 
 .glass::before, .glass::after {
@@ -88,8 +80,40 @@ main {
 }
 
 .glass::after {
-  bottom: -7%;
+  bottom: -4%;
   left: -12%;
+}
+
+@media screen and (max-width: 1700px) {
+  .glass {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .glass {
+    width: 615px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .glass {
+    width: 615px;
+    margin: 4rem 1rem;
+  }
+  .glass::before, .glass::after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .glass {
+    width: 100%;
+    margin: 2rem 0;
+  }
 }
 
 .dashboard {
@@ -156,7 +180,18 @@ main {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    padding: 1rem;
+    padding: 1rem 2rem;
+  }
+  .dashboard .pro {
+    max-width: 25%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .dashboard .pro img {
+    max-width: 50%;
+    max-height: 50%;
   }
   .dashboard .link {
     display: -webkit-box;
@@ -175,6 +210,106 @@ main {
   }
   .dashboard .link h2 {
     padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 1210px) {
+  .dashboard {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: auto 1fr;
+        grid-template-rows: auto 1fr;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'user pro' 'nav nav';
+  }
+  .dashboard .user {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: user;
+  }
+  .dashboard .links {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: nav;
+  }
+  .dashboard .links ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .dashboard .links ul .link {
+    padding: 0 0.1rem;
+  }
+  .dashboard .pro {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: pro;
+    max-width: 100%;
+    max-height: 80%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .dashboard .pro img {
+    width: 66px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .dashboard {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .dashboard .links {
+    width: 100%;
+  }
+  .dashboard .links ul {
+    text-align: center;
+    width: 80%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: (1fr)[auto-fill];
+        grid-template-rows: repeat(auto-fill, 1fr);
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    justify-items: left;
+    margin: 0 auto;
+  }
+  .dashboard .pro {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .dashboard .pro img {
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -260,7 +395,7 @@ main {
   background: -webkit-gradient(linear, left bottom, right top, from(#65dfc9), to(#6cdbeb));
   background: linear-gradient(to right top, #65dfc9, #6cdbeb);
   width: 100%;
-  height: 25%;
+  height: 25px;
   border-radius: 1rem;
   position: relative;
   overflow: hidden;
@@ -288,6 +423,146 @@ main {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+}
+
+@media screen and (max-width: 1210px) {
+  .games .card {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .games .card img {
+    -webkit-box-flex: 40%;
+        -ms-flex: 40%;
+            flex: 40%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    padding: 1rem;
+  }
+  .games .card .card-info {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+  .games .card .card-info h2,
+  .games .card .card-info p {
+    margin-bottom: 0.5rem;
+  }
+  .games .card .percentage {
+    -webkit-box-flex: 60%;
+        -ms-flex: 60%;
+            flex: 60%;
+    width: 50%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    text-align: center;
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .games {
+    margin: 3rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .games {
+    margin: 1rem;
+  }
+  .games h1 {
+    font-size: 2rem;
+  }
+  .games .status {
+    margin-bottom: 1rem;
+  }
+  .games .card img {
+    -webkit-box-flex: 50%;
+        -ms-flex: 50%;
+            flex: 50%;
+    max-width: 50%;
+    width: 50%;
+  }
+  .games .card h2.percentage {
+    -webkit-box-flex: 50%;
+        -ms-flex: 50%;
+            flex: 50%;
+    width: 100%;
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 355px) {
+  .games .card {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    font-size: 12px;
+    padding: 2rem 1rem;
+  }
+  .games .card img {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+    width: 50%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    padding: 1rem;
+  }
+  .games .card .card-info {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    width: 100%;
+    margin: 0;
+  }
+  .games .card .card-info h2,
+  .games .card .card-info p {
+    margin-bottom: 0.5rem;
+  }
+  .games .card .percentage {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+    width: 50%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    text-align: center;
+    font-size: 4rem;
+  }
+  .games .card .progress {
+    width: 100%;
+  }
 }
 
 .circle {
